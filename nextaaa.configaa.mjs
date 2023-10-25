@@ -1,4 +1,4 @@
-import './src/env.mjs';
+import './src/envasdas.mjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // skipTrailingSlashRedirect: true,

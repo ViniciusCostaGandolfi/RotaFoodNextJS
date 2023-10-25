@@ -1,5 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
-import AuthProvider from '@/app/api/auth/[...nextauth]/auth-provider';
+
 import { inter, lexendDeca } from '@/app/fonts';
 import GlobalDrawer from '@/app/shared/drawer-views/container';
 import GlobalModal from '@/app/shared/modal-views/container';
@@ -29,7 +28,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
   return (
     <html
       lang="pt-br"
@@ -42,7 +40,6 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={cn(inter.variable, lexendDeca.variable, 'font-inter')}
       >
-        <AuthProvider session={session}>
           <ThemeProvider>
             <NextProgress />
             {children}
@@ -50,7 +47,6 @@ export default async function RootLayout({
             <GlobalDrawer />
             <GlobalModal />
           </ThemeProvider>
-        </AuthProvider>
       </body>
     </html>
   );

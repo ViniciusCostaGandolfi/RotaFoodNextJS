@@ -1,7 +1,6 @@
 import FormGroup from '@/app/shared/form-group';
 import cn from '@/utils/class-names';
 import ProductDisponibily from '@/app/shared/ecommerce/product/create/product-availability';
-import InventoryTracing from '@/app/shared/ecommerce/product/create/inventory-tracking';
 import ProductPricing from '@/app/shared/ecommerce/product/create/product-pricing';
 
 interface PricingInventoryProps {

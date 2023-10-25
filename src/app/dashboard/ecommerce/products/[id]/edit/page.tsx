@@ -26,6 +26,7 @@ const productData = {
   title: 'Apple',
   description: 'Fresh Express Iceberg Garden Salad Blend',
   sku: 'SKU-28935',
+  isActive: true,
   type: 'Digital Product',
   categories: 'Grocery',
   price: '10',

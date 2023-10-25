@@ -20,7 +20,6 @@ import PricingInventory from '@/app/shared/ecommerce/product/create/pricing-inve
 import FormFooter from '@/components/form-footer';
 // eslint-disable-next-line no-duplicate-imports
 import ProductDescription from '@/app/shared/ecommerce/product/create/product-description';
-import ProductPricing from './product-pricing';
 
 const MAP_STEP_TO_COMPONENT = {
   [formParts.description]: ProductDescription,

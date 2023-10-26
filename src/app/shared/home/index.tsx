@@ -71,7 +71,7 @@ export default function HomeSection() {
 
       <div>
 
-        <div  className='pt-40'>
+        {/* <div  className='pt-40'>
           <Title className='text:primary pb-5 text-5xl text-center'>
               Sobre Nós
           </Title>
@@ -81,7 +81,7 @@ export default function HomeSection() {
             <br/>
             Utilizamos inteligência artificial e otimização matemática para gerar nossas soluções.
           </Text>
-        </div>
+        </div> */}
 
         <HomeHero/>
         <HomeServices/>

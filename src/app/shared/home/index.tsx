@@ -12,6 +12,7 @@ import {MdEmail} from 'react-icons/md'
 import HomeHero from './hero';
 import HomeAboutUs from './about-us';
 import HomeServices from './services';
+import Link from 'next/link';
 
 
 
@@ -37,13 +38,16 @@ export default function HomeSection() {
               fedelize seus clientes!
             </Text>
             <div className="mt-8 flex flex-col justify-center gap-4 lg:flex-row lg:justify-start xl:gap-6">
-              <Button
-                color="primary"
-                size="lg"
-                className="h-12 px-4 xl:h-14 xl:px-6"
-              >
-                Crie sua conta
-              </Button>
+              <Link href='/login'>
+                <Button
+                  
+                  color="primary"
+                  size="lg"
+                  className="h-12 px-4 xl:h-14 xl:px-6"
+                >
+                    Crie sua conta
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="relative">

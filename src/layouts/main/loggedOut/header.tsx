@@ -1,19 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
-import { ActionIcon } from '@/components/ui/action-icon';
-import RingBellSolidIcon from '@/components/icons/ring-bell-solid';
-import NotificationDropdown from '@/layouts/notification-dropdown';
-import ProfileMenu from '@/layouts/profile-menu';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { useWindowScroll } from '@/hooks/use-window-scroll';
 import HamburgerButton from '@/layouts/hamburger-button';
 import cn from '@/utils/class-names';
-import Logo from '@/components/logo';
 import { loggedOutMenuItems } from './menu-items';
 import { usePathname } from 'next/navigation';
-import Sidebar from '../loggedIn/sidebar';
+import Sidebar from './sidebar';
 import Image from 'next/image';
 import { siteConfig } from '@/config/site.config';
 

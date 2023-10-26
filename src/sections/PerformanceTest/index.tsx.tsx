@@ -51,8 +51,8 @@ export default function PerformanceTesteSection() {
       <div className="grid grid-cols-1 w-11/12">
         {array.map(item => (
           <div className="flex flex-row items-start pb-4" key={item.id}>
-            <item.icon className="text-primary" size={40}/>
-            <Text  className="text-primary text-3xl">{item.description}</Text>
+            <item.icon className="text-primary w-1/4 sm:w-auto" size={40}/>
+            <Text  className="text-primary text-xl sm:text-3xl ">{item.description}</Text>
           </div>
         ))}
       </div>

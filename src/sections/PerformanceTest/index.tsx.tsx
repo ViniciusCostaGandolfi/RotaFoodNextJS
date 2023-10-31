@@ -15,7 +15,7 @@ const MapLeaflet = dynamic(() => import('@/components/FullMapLeaflet'), {
 const array = [
   {
     id: 0,
-    description: 'Uma endereço ao redor de Limeira-SP contendo sua latitude e longitude',
+    description: 'Uma endereço ao redor de Campibas-SP contendo sua latitude e longitude',
     icon: FaLocationDot
   },
   {

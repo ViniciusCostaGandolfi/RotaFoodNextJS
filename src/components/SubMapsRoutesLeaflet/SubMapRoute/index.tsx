@@ -33,7 +33,6 @@ function SubMapRoute({ route, color }: Props) {
       lat: route.points[0][0],
       lng: route.points[0][1],
     };
-    console.log(posicoes)
     return (
             <MapContainer center={centro} zoom={13} className="w-full h-40" keyboard={false}>
                 <TileLayer

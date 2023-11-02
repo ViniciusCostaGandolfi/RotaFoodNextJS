@@ -65,15 +65,15 @@ export default function GetRoutesForms({setRoutes, setShowMap}: Props) {
         http
           .post('logistics/test/', { number_of_points: input.numberOfOrders })
           .then((response) => {
-            const data: IRoute[] = response.data['routes'];
-            setRoutes(data);
+            setLoaddingTime(response.data['solving_time'])
+            setRoutes(response.data['routes']);
             setIsLoading(false);
             setShowMap(true);
       
-            const endTime = new Date();
+            // const endTime = new Date();
             //@ts-ignore
-            const tempoDecorrido = endTime - startTime;
-            setLoaddingTime(Number(tempoDecorrido))
+            // const tempoDecorrido = endTime - startTime;
+            // setLoaddingTime(Number(tempoDecorrido))
           })
           .catch((errors) => {
             setIsLoading(false);
@@ -108,7 +108,7 @@ export default function GetRoutesForms({setRoutes, setShowMap}: Props) {
                         <BiSolidTimer size={70} className='w-1/3'/>
                         <Text className='text-center'>
                             Gerencia {getValues('numberOfOrders')} pedidos dividindo em rotas para seus entregadores
-                            considerando o volume dos pedidos, distancia e atraso em menos de {loaddingTime/1000} segundos
+                            considerando o volume dos pedidos, distancia e atraso em menos de {loaddingTime} segundos
                         </Text>
                         
                     </div>

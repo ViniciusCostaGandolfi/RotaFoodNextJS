@@ -16,3 +16,8 @@ export interface IRoute {
     name: string;
     orders?: IOrderRoute[]
   } 
+
+interface ResponseRoutes {
+  routes: IRoute[],
+  solving_time: number
+}

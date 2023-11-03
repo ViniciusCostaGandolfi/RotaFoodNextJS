@@ -22,13 +22,16 @@ function SubMapRoute({ route, color }: Props) {
     
 
     const iconEntrega = icon({
-      iconUrl: "/images/locality_icon.png",
-      iconSize: [10, 10],
+      iconUrl: "/images/icones/IconeEntrega.png",
+      iconSize: [20, 20],
     });
+    
+    
     const iconBase2 = icon({
-      iconUrl: "/images/house_icon2.png", 
-      iconSize: [35, 35],
+      iconUrl: "/images/icones/IconeRestaurante.png",
+      iconSize: [40, 40],
     });
+    
     const centro: LatLngLiteral = {
       lat: route.points[0][0],
       lng: route.points[0][1],

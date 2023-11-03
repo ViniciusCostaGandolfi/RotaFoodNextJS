@@ -28,14 +28,14 @@ function FullMapLeaflet({ routes }: Props) {
     
     
   const iconEntrega = icon({
-    iconUrl: "/images/locality_icon.png",
-    iconSize: [15, 20],
+    iconUrl: "/images/icones/IconeEntrega.png",
+    iconSize: [20, 20],
   });
   
   
   const iconBase2 = icon({
-    iconUrl: "/images/house_icon2.png", 
-    iconSize: [35, 35],
+    iconUrl: "/images/icones/IconeRestaurante.png",
+    iconSize: [40, 40],
   });
 
   const centro: LatLngLiteral = {
@@ -73,11 +73,13 @@ function FullMapLeaflet({ routes }: Props) {
 
   const [selectedRoute, setSelectedRoute] = useState<IRouteSelect>(optionsRoute[0]);
 
+
   
   return (
     <div className="w-full h-full pt-5" >
 
       <Text className="text-primary text-xl">Mapa Completo</Text>
+      <Text className="text-dark text-lg pb-6">Clique em alguma linha ou ponto para ver mais informações</Text>
       <Select
         options={optionsRoute}
         value={selectedRoute}
@@ -87,14 +89,17 @@ function FullMapLeaflet({ routes }: Props) {
             setSelectedRoute(possibleRoute)
           }
         }}
-        label="Rotas"
+        label="Selecione uma Rota"
         getOptionValue={(option) => option.value}
       />
-    <MapContainer className="z-0" center={centro} zoom={14} style={{ width: "100%", height: "60vh" }} keyboard={false}>
+
+    <MapContainer className="z-0 relative" center={centro} zoom={14} style={{ width: "100%", height: "60vh" }} keyboard={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
       />
+
+      
       {selectedRoute.routes.map((route, routeIndex) => {
         const posicoes: LatLngExpression[] = route.points.map((point) => [point[0], point[1]]);
         const sequence = route.sequence;
@@ -120,7 +125,8 @@ function FullMapLeaflet({ routes }: Props) {
             <Polyline  
               key={`route_polyline${routeIndex}`} 
               positions={sequence.map((i) => posicoes[i])} 
-              pathOptions={{ color: colormap[routeIndex] }} 
+              pathOptions={{ color: colormap[routeIndex], weight: 5 }} 
+              
               
               >
                 <Popup>
@@ -133,7 +139,21 @@ function FullMapLeaflet({ routes }: Props) {
           </div>
         );
       })}
-       <Marker position={centro} key={`markerLeaflet-Base`} icon={iconBase2} />
+       <Marker position={centro} key={`markerLeaflet-Base`} icon={iconBase2} >
+
+          <Popup>
+            Olá Restaurante <br/>
+            Voce tem tem muitos pedidos <br/>
+            Usando o RotaFood vai dar tudo certo ;-;
+          </Popup>
+       </Marker>
+
+       {/* <div className="w-52 h-52	absolute bg-white" style={{zIndex: 1000}}>
+        <div>
+            Clique em alguma rota e veja alguns dados sobre elas
+            Clique 
+        </div>
+      </div> */}
        <FullscreenControl position="topright" />
     </MapContainer>
     </div>

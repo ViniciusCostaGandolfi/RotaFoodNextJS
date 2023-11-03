@@ -15,7 +15,7 @@ const MapLeaflet = dynamic(() => import('@/components/FullMapLeaflet'), {
 const array = [
   {
     id: 0,
-    description: 'Uma endereço ao redor de Campibas-SP contendo sua latitude e longitude',
+    description: 'Uma endereço ao redor de Campinas-SP contendo sua latitude e longitude',
     icon: FaLocationDot
   },
   {
@@ -23,11 +23,11 @@ const array = [
     description: 'Um volume que será a soma dos volumes dos items de cada pedido',
     icon: FaWeightHanging
   },
-  {
-    id: 2,
-    description: 'Um atraso que será o tempo entre o pedido se feito e sair para entrega',
-    icon: BiSolidTimeFive
-  },
+  // {
+  //   id: 2,
+  //   description: 'Um atraso que será o tempo entre o pedido se feito e sair para entrega',
+  //   icon: BiSolidTimeFive
+  // },
   {
     id: 3,
     description: 'O volume dos pedidos de uma rota deve estar dentro da capacidade do entregador',

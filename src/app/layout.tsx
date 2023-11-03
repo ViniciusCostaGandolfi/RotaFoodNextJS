@@ -5,7 +5,6 @@ import GlobalModal from '@/app/shared/modal-views/container';
 import { ThemeProvider } from '@/app/shared/theme-provider';
 import { siteConfig } from '@/config/site.config';
 import cn from '@/utils/class-names';
-import { getServerSession } from 'next-auth/next';
 import dynamic from 'next/dynamic';
 import { Toaster } from 'react-hot-toast';
 import iconPath from '@public/images/RotaFoodIcone.png'

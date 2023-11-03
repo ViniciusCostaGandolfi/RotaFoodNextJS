@@ -34,7 +34,7 @@ function SubMapRoute({ route, color }: Props) {
       lng: route.points[0][1],
     };
     return (
-            <MapContainer center={centro} zoom={13} className="w-full h-40" keyboard={false}>
+            <MapContainer center={centro} zoom={13} className="w-full h-40 z-0" keyboard={false}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'

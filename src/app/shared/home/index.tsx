@@ -13,6 +13,7 @@ import HomeHero from './hero';
 import HomeAboutUs from './about-us';
 import HomeServices from './services';
 import Link from 'next/link';
+import http from '@/components/HTTP';
 
 
 
@@ -71,17 +72,6 @@ export default function HomeSection() {
 
       <div>
 
-        {/* <div  className='pt-40'>
-          <Title className='text:primary pb-5 text-5xl text-center'>
-              Sobre Nós
-          </Title>
-
-          <Text  className='text:primary pb-5 text-xl text-center'>
-            Somos um spin-off de base tecnológica gerada na Unicamp. 
-            <br/>
-            Utilizamos inteligência artificial e otimização matemática para gerar nossas soluções.
-          </Text>
-        </div> */}
 
         <HomeHero/>
         <HomeServices/>

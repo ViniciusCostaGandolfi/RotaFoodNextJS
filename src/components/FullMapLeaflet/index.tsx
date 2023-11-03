@@ -3,11 +3,13 @@ import { MapContainer, TileLayer, Marker, Polyline, LayersControl, Popup } from 
 import { LatLngLiteral, LatLngExpression, icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import createColormap from "colormap";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IRoute } from "@/interfaces/IRoute";
 import {Text} from "@/components/ui/text"
 import { FullscreenControl } from "react-leaflet-fullscreen";
 import Select, { SelectOption } from "../ui/select";
+import "react-leaflet-fullscreen/styles.css";
+
 
 
 
@@ -23,13 +25,8 @@ interface IRouteSelect extends SelectOption {
 }
 
 function FullMapLeaflet({ routes }: Props) {
-  // const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
-    // const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
     
     
-
-
-
   const iconEntrega = icon({
     iconUrl: "/images/locality_icon.png",
     iconSize: [15, 20],
@@ -70,7 +67,7 @@ function FullMapLeaflet({ routes }: Props) {
       }
     ])
     routes.map((route, index) => {
-      setOptionsRoute((prevState) => [...prevState, {name: `Route ${index}`, value: `route${index}`,routes: [route]}])
+      setOptionsRoute((prevState) => [...prevState, {name: `Route ${index} - ${route.volume} litros`, value: `route${index}`,routes: [route]}])
     })
   }, [routes])
 
@@ -93,7 +90,7 @@ function FullMapLeaflet({ routes }: Props) {
         label="Rotas"
         getOptionValue={(option) => option.value}
       />
-    <MapContainer center={centro} zoom={14} style={{ width: "100%", height: "60vh" }} keyboard={false}>
+    <MapContainer className="z-0" center={centro} zoom={14} style={{ width: "100%", height: "60vh" }} keyboard={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
@@ -136,9 +133,6 @@ function FullMapLeaflet({ routes }: Props) {
           </div>
         );
       })}
-        <LayersControl position="topright">
-           
-        </LayersControl>
        <Marker position={centro} key={`markerLeaflet-Base`} icon={iconBase2} />
        <FullscreenControl position="topright" />
     </MapContainer>

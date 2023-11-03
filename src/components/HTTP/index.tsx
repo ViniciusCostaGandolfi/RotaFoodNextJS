@@ -1,11 +1,9 @@
 import axios from "axios"
-import { env } from "process";
 
 
 
 const http = axios.create({
-    baseURL: 'https://rotafooddrf-production.up.railway.app/',
-    // baseURL: 'http://127.0.0.1:8000/',
+    baseURL: process.env.NEXT_PUBLIC_NODE_ENV === "production" ? process.env.NEXT_PUBLIC_API_PRODUCTION_URL: process.env.NEXT_PUBLIC_API_LOCAL_URL,
 
     headers: {
         Accept: 'application/json',

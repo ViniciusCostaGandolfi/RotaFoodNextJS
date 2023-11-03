@@ -60,6 +60,7 @@ export default function GetRoutesForms({setRoutes, setShowMap}: Props) {
     ]
 
     function onSubmit(input: CreateGetRoutesInput) {
+        console.log(http)
         setShowMap(false);
         const startTime = new Date();
         http

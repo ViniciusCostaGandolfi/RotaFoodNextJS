@@ -1,4 +1,4 @@
-import PerformanceTesteSection from "@/sections/PerformanceTest/index.tsx";
+import PerformanceTesteSection from "@/sections/PerformanceTest/index";
 
 export default function TestPage() {
 
@@ -6,4 +6,4 @@ export default function TestPage() {
     return (
         <PerformanceTesteSection/>
     )
-}
+} 

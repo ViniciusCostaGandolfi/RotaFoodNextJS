@@ -1,6 +1,7 @@
 /* eslint-disable no-duplicate-imports */
 import { MapContainer, TileLayer, Marker, Polyline, LayersControl, Popup } from "react-leaflet";
 import { LatLngLiteral, LatLngExpression, icon } from "leaflet";
+import Control from 'react-leaflet-custom-control'
 import "leaflet/dist/leaflet.css";
 import createColormap from "colormap";
 import { useEffect, useRef, useState } from "react";
@@ -98,7 +99,12 @@ function FullMapLeaflet({ routes }: Props) {
         getOptionValue={(option) => option.value}
       /> */}
 
-    <MapContainer className="z-0 relative" center={centro} zoom={14} style={{ width: "100%", height: "70vh" }} keyboard={false} scrollWheelZoom={false}>
+    <MapContainer 
+      className="z-0 relative" 
+      center={centro} zoom={14} 
+      style={{ width: "100%", height: "70vh" }} 
+      scrollWheelZoom={true}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
@@ -156,14 +162,15 @@ function FullMapLeaflet({ routes }: Props) {
             Usando o RotaFood vai dar tudo certo ;-;
           </Popup>
        </Marker>
-
+       
+        <Control position='bottomright'>
           <div className="w-36 rounded-2xl overflow-scroll scroll-smooth max-h-32 sm:max-h-52	absolute bg-white/[0.9] bottom-0 right-0" style={{zIndex: 9999}}>
             <div>
                 {
                   selectedRoute.routes.map((routee, indexx) => {
                     // const color = colormap[indexx]
                     return (
-                      <Button className={` my-2 bg-primary`} key={`AiQDilica${indexx}`} style={{zIndex: 1000}} onClick={()=> {
+                      <Button className={` my-2 bg-primary`} key={`AiQDilica${indexx}`} style={{zIndex: 999999}} onClick={()=> {
                         //@ts-ignore
                         const poupOpen = popupRefs[indexx]    
                         if (poupOpen !== null) {
@@ -183,6 +190,7 @@ function FullMapLeaflet({ routes }: Props) {
                 }
             </div>
           </div>
+        </Control>      
        <FullscreenControl position="topright" />
     </MapContainer>
     </div>

@@ -68,7 +68,7 @@ export default function PerformanceTesteSection() {
           }
 
 
-          {showMap && routes[0] &&
+          {/* {showMap && routes[0] &&
                       
             <div className="w-full items-center flex flex-col">
               <div className="sm:w-10/12 w-full items-center flex">
@@ -78,7 +78,7 @@ export default function PerformanceTesteSection() {
               </div>
             </div>
             
-          }
+          } */}
 
       </div>
     </div>

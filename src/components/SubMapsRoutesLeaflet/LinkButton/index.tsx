@@ -5,7 +5,7 @@ import { useState } from 'react';
 interface Props {
     link: string;
     id: string | number;
-    nome: string;
+    nome: string | number;
 }
 
 

@@ -14,10 +14,7 @@ export interface IRoute {
     sequence: number[];
     volume: number;
     name: string;
-    orders?: IOrderRoute[]
+    link_google_maps: string;
+    orders?: IOrderRoute[];
   } 
 
-interface ResponseRoutes {
-  routes: IRoute[],
-  solving_time: number
-}

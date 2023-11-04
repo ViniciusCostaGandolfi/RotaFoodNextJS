@@ -118,8 +118,8 @@ export default function GetRoutesForms({setRoutes, setShowMap}: Props) {
                 }
 
             {loaddingTime === 0.0 && 
-                <div className='text-xl text-primary'>
-                    <Title className='text-primary'>Clique em gerar rotas para ver o resultado</Title>
+                <div className='text-xl flex flex-col items-center text-primary'>
+                    <Title className='text-primary pt-12'>Clique em gerar rotas para ver o resultado</Title>
                 </div>
             }
 

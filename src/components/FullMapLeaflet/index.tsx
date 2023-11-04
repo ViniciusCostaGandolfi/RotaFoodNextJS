@@ -164,7 +164,7 @@ function FullMapLeaflet({ routes }: Props) {
        </Marker>
        
         <Control position='bottomright'>
-          <div className="w-36 rounded-2xl overflow-scroll scroll-smooth max-h-32 sm:max-h-52	absolute bg-white/[0.9] bottom-0 right-0" style={{zIndex: 9999}}>
+          <div className="w-36 rounded-2xl overflow-scroll scroll-smooth max-h-44 sm:max-h-52	absolute bg-white/[0.9] bottom-0 right-0" style={{zIndex: 9999}}>
             <div>
                 {
                   selectedRoute.routes.map((routee, indexx) => {
@@ -178,7 +178,7 @@ function FullMapLeaflet({ routes }: Props) {
                           poupOpen.openPopup();
                         }
                       }}>
-                        <strong> Rota   </strong>
+                        <strong> Rota {}  </strong>
                         <div className={`w-6 h-6 bg-white rounded-full m-2 flex items-center justify-center`}>
                           <div className="w-3 h-3" style={{backgroundColor: colormap[indexx]}}>
                           </div>

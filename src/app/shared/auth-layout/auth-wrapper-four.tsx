@@ -73,7 +73,7 @@ export default function AuthWrapperFour({
               {title}
             </Title>
           </div>
-          {isSocialLoginActive && (
+          {isSocialLoginActive && false && (
             <>
               <div className="flex flex-col gap-4 pb-6 md:flex-row md:gap-6 xl:pb-7">
                 <Button className="h-11 w-full">

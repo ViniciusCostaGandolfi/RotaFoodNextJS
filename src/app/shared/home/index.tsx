@@ -39,12 +39,23 @@ export default function HomeSection() {
               fedelize seus clientes!
             </Text>
             <div className="mt-8 flex flex-col justify-center gap-4 lg:flex-row lg:justify-start xl:gap-6">
+            <Link href='/test'>
+                <Button
+                  
+                  color="primary"
+                  size="lg"
+                  className="h-12 px-4 pb-1 xl:h-14 xl:px-6"
+                >
+                    Teste de Performance
+                </Button>
+              </Link>
+              
               <Link href='/login'>
                 <Button
                   
                   color="primary"
                   size="lg"
-                  className="h-12 px-4 xl:h-14 xl:px-6"
+                  className="h-12 px-4 pb-1 xl:h-14 xl:px-6"
                 >
                     Crie sua conta
                 </Button>

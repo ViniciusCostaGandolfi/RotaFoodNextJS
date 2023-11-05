@@ -12,27 +12,33 @@ import * as z from 'zod';
 import { useState } from 'react';
 import { routes } from '@/config/routes';
 import { useMedia } from '@/hooks/use-media';
+import http from '@/components/HTTP';
 
 const initialValues = {
   email: '',
+  name: '',
+  phone: '',
   password: '',
-  isAgreed: false,
+  // isAgreed: false,
 };
 
 const signUpFormSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address' }),
+  email: z.string().email({ message: 'Email valido' }),
+  name: z.string().min(1, { message: 'Coloque seu nome' }),
+  phone: z.string().min(11, { message: 'Número no formaro 19 981859845' }),
+
   password: z
     .string()
-    .min(8, { message: 'Password must be 8 or more characters long' })
-    .max(32, { message: 'Password must be a maximum of 32 characters long' })
-    .regex(new RegExp('.*[A-Z].*'), {
-      message: 'At least one uppercase character',
-    })
-    .regex(new RegExp('.*[a-z].*'), {
-      message: 'At least one lowercase character',
-    })
-    .regex(new RegExp('.*\\d.*'), { message: 'At least one number' }),
-  isAgreed: z.boolean(),
+    .min(6, { message: 'Password must be 8 or more characters long' })
+    .max(128, { message: 'Password must be a maximum of 32 characters long' }),
+    // .regex(new RegExp('.*[A-Z].*'), {
+    //   message: 'At least one uppercase character',
+    // })
+    // .regex(new RegExp('.*[a-z].*'), {
+    //   message: 'At least one lowercase character',
+    // })
+    // .regex(new RegExp('.*\\d.*'), { message: 'At least one number' }),
+  // isAgreed: z.boolean(),
 });
 
 type FormValues = z.infer<typeof signUpFormSchema>;
@@ -40,9 +46,23 @@ type FormValues = z.infer<typeof signUpFormSchema>;
 export default function SignUpForm() {
   const isMedium = useMedia('(max-width: 1200px)', false);
   const [reset, setReset] = useState({});
+  const [errors, setErros] = useState<any>({});
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
-    setReset({ ...initialValues, isAgreed: false });
+    // sessionStorage.removeItem('rotafood_access_token')
+    // sessionStorage.removeItem('rotafood_refresh_token')
+
+    http.post('accounts/register/', data)
+      .then((response) => {
+        sessionStorage.setItem('rotafood_access_token', response.data.access_token);
+        sessionStorage.setItem('rotafood_refresh_token', response.data.refresh_token);
+        console.log(response);
+        setReset({ ...initialValues});
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
   };
 
   return (
@@ -66,6 +86,26 @@ export default function SignUpForm() {
               {...register('email')}
               error={errors.email?.message}
             />
+
+            <Input
+              type="text"
+              size={isMedium ? 'lg' : 'xl'}
+              label="Nome"
+              placeholder="Seu nome aqui!"
+              className="[&>label>span]:font-medium"
+              {...register('name')}
+              error={errors.name?.message}
+            />
+
+            <Input
+              type="text"
+              size={isMedium ? 'lg' : 'xl'}
+              label="Telefone"
+              placeholder="Seu telefone aqui!"
+              className="[&>label>span]:font-medium"
+              {...register('phone')}
+              error={errors.phone?.message}
+            />
             <Password
               label="Senha"
               placeholder="Sua senha aqui!"
@@ -75,7 +115,7 @@ export default function SignUpForm() {
               error={errors.password?.message}
             />
             <div className="col-span-2 flex items-start text-gray-700">
-              <Checkbox
+              {/* <Checkbox
                 {...register('isAgreed')}
                 className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"
                 label={
@@ -96,7 +136,7 @@ export default function SignUpForm() {
                     </Link>
                   </Text>
                 }
-              />
+              /> */}
             </div>
             <Button
               className="w-full"
@@ -108,6 +148,14 @@ export default function SignUpForm() {
           </div>
         )}
       </Form>
+      <div>
+      {Object.keys(errors).map((key, index) => (
+        <div key={`error${index}`} className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">{key}</strong>
+          <span className="block sm:inline">{errors[key]}</span>
+        </div>
+      ))}
+      </div>
       <Text className="mt-6 text-center text-[15px] leading-loose text-gray-500 md:mt-7 lg:mt-9 lg:text-base">
         Já tem uma conta?
         <Link

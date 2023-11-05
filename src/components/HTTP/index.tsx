@@ -15,7 +15,7 @@ const http = axios.create({
 
 
 http.interceptors.request.use( function (config) {
-    const token = sessionStorage.getItem('acess_token')
+    const token = sessionStorage.getItem('rotafood_access_token')
     if (token && config.headers) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -26,7 +26,7 @@ http.interceptors.request.use( function (config) {
     } )
 
 axios.interceptors.request.use( function (config) {
-    const token = sessionStorage.getItem('acess_token')
+    const token = sessionStorage.getItem('rotafood_access_token')
     if (token && config.headers) {
         config.headers['Authorization'] = `Bearer ${token}`; 
     }

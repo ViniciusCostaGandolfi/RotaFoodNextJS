@@ -128,7 +128,8 @@ function FullMapLeaflet({ routes }: Props) {
                     <Popup>
                       id: {order.id} <br/>
                       volume: {order.volume} <br/>
-                      locale: {order.locale} <br/>
+                      latitude: {order.locale[0]},  <br/>
+                      longitude: {order.locale[1]},  <br/>
                     </Popup>
                   </Marker>
               )
@@ -145,7 +146,7 @@ function FullMapLeaflet({ routes }: Props) {
                 <Popup >
                   nome: {route.name} <br/>
                   Volume: {route.volume} <br/>
-                  Distancia Linear: {route.distance} <br/>
+                  Distancia Linear: {route.distance.toFixed(2)} km<br/>
                   <LinkButton link={route.link_google_maps} id={routeIndex} nome={routeIndex} />
                   
                 </Popup>

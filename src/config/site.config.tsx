@@ -1,4 +1,4 @@
-import logoImg from '@public/images/logo_rotafood.svg';
+import logoImg from '@public/images/logo_rotafood.png';
 import logoIconImg from '@public/images/RotaFoodIcone.png';
 import { LAYOUT_OPTIONS } from './constants';
 

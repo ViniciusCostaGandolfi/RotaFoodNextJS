@@ -1,4 +1,4 @@
-import logoRotaFood from '@public/images/logo_rotafood.svg'
+import logoRotaFood from '@public/images/logo_rotafood.png'
 import iconeRotaFood from '@public/images/icone_rotafood.svg'
 import Image from 'next/image';
 

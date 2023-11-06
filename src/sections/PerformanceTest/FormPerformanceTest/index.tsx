@@ -109,7 +109,7 @@ export default function GetRoutesForms({setRoutes, setShowMap}: Props) {
                         <BiSolidTimer size={70} className='w-1/3'/>
                         <Text className='text-center'>
                             Gerencia {getValues('numberOfOrders')} pedidos dividindo em rotas para seus entregadores
-                            considerando o volume dos pedidos, distancia e atraso em menos de {loaddingTime} segundos
+                            considerando o volume dos pedidos, distancia e atraso em menos de {loaddingTime.toFixed(2)} segundos
                         </Text>
                         
                     </div>

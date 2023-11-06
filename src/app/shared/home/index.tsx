@@ -50,7 +50,7 @@ export default function HomeSection() {
                 </Button>
               </Link>
               
-              <Link href='/login'>
+              <Link href='/register'>
                 <Button
                   
                   color="primary"

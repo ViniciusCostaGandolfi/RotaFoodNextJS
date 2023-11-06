@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { routes } from '@/config/routes';
 import { useMedia } from '@/hooks/use-media';
 import http from '@/components/HTTP';
+import { useRouter } from 'next/navigation'
 
 const initialValues = {
   email: '',
@@ -46,7 +47,10 @@ type FormValues = z.infer<typeof signUpFormSchema>;
 export default function SignUpForm() {
   const isMedium = useMedia('(max-width: 1200px)', false);
   const [reset, setReset] = useState({});
-  const [errors, setErros] = useState<any>({});
+  const [errors, setErros] = useState<any>();
+  const router = useRouter()
+
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
     // sessionStorage.removeItem('rotafood_access_token')
@@ -56,11 +60,11 @@ export default function SignUpForm() {
       .then((response) => {
         sessionStorage.setItem('rotafood_access_token', response.data.access_token);
         sessionStorage.setItem('rotafood_refresh_token', response.data.refresh_token);
-        console.log(response);
         setReset({ ...initialValues});
+        router.push('/maintenance');
       })
       .catch((error) => {
-        console.log(error);
+        setErros(error)
       })
 
   };
@@ -149,12 +153,12 @@ export default function SignUpForm() {
         )}
       </Form>
       <div>
-      {Object.keys(errors).map((key, index) => (
-        <div key={`error${index}`} className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-          <strong className="font-bold">{key}</strong>
-          <span className="block sm:inline">{errors[key]}</span>
+      {errors && 
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">Erro no Email: </strong>
+          <span className="block sm:inline">Email já cadastrado :/</span>
         </div>
-      ))}
+      }
       </div>
       <Text className="mt-6 text-center text-[15px] leading-loose text-gray-500 md:mt-7 lg:mt-9 lg:text-base">
         Já tem uma conta?

@@ -2,10 +2,8 @@
 import {useState } from "react";
 import { IRoute } from '@/interfaces/IRoute';
 import {FaWeightScale, FaWeightHanging, FaLocationDot} from 'react-icons/fa6';
-import {BiSolidTimeFive} from 'react-icons/bi';
 import dynamic from 'next/dynamic';
 import GetRoutesForms from "./FormPerformanceTest";
-import SubMapsRoutesLeaflet from "@/components/SubMapsRoutesLeaflet";
 import {Text, Title} from '@/components/ui/text'
 
 const MapLeaflet = dynamic(() => import('@/components/FullMapLeaflet'), {

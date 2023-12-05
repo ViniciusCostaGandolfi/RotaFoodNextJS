@@ -14,7 +14,7 @@ export default function HomeAboutUs() {
     {
       id: 1,
       name: 'Saulo Alves',
-      description: 'Aluno de Engenharia de Produção na FCA-Unicamp',
+      description: 'Aluno de Doutorado em Matematica Aplicada - IMECC',
       image: sauloPath,
       links: [
         {

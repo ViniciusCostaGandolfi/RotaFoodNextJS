@@ -52,6 +52,8 @@ function FullMapLeaflet({ routes }: Props) {
     nshades: routes.length > 9 ? routes.length : 9,
     format: "hex",
   });
+
+
   
   const [optionsRoute, setOptionsRoute] = useState<IRouteSelect[]>([
     {
@@ -86,6 +88,7 @@ function FullMapLeaflet({ routes }: Props) {
 
       <Text className="text-primary text-3xl font-bold">Mapa Completo</Text>
       <Text className="text-dark text-lg pb-6">Clique nas linhas, pontos ou botẽes para ver mais informações</Text>
+
       {/* <Select
         options={optionsRoute}
         value={selectedRoute}
@@ -114,6 +117,7 @@ function FullMapLeaflet({ routes }: Props) {
       {selectedRoute.routes.map((route, routeIndex) => {
         const posicoes: LatLngExpression[] = route.points.map((point) => [point[0], point[1]]);
         const sequence = route.sequence;
+      
 
         return (
           <div key={`route_div-${routeIndex}`}>
